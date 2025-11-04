@@ -46,6 +46,28 @@ function palindrome(string){
 }
 
 function sumDigits(num){
-    let a = num.toString();
-    if()
+    if(num === 0){
+        return 0;
+    }else if(num%10 === 0){
+        return sumDigits(num/10)
+    }else{
+        return 1 + sumDigits(num-1)
+    }
+}
+
+function binarySearch(arr, value){
+    let low = 0;
+    let high = arr.length - 1;
+    let mid = (low+high)/2
+    if(arr[mid] === value){
+        return mid
+    }else if(arr[mid] < value){
+        console.log(arr, arr[mid], arr.slice(mid + 1))
+        return binarySearch(arr.slice(mid + 1), value)
+    }else if(arr[mid] > value){
+        console.log(arr, arr[mid], arr.slice(mid + 1))
+        return binarySearch(arr.slice(0, mid-1), value)
+    }else{
+        return -1
+    }
 }
